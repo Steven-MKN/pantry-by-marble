@@ -28,6 +28,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      // "babel-preset-expo",
       "expo-font",
       [
         "expo-splash-screen",
