@@ -5,6 +5,8 @@ import 'react-native-reanimated';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { CartSvg, FavouritesSvg, HomeSvg, ProfileSvg, SearchSvg } from '../assets/icons';
+import BottomTabBar from './components/BottomTabBar';
 import Login from './sceens/auth/Login';
 import SignUp from './sceens/auth/SignUp';
 import Cart from './sceens/home/Cart';
@@ -26,29 +28,29 @@ export default function RootLayout() {
   return (
     <View style={{ flex: 1 }}>
       {auth.loggedInState === 'logged-in' ? (
-        <Tab.Navigator>
+        <Tab.Navigator tabBar={props => <BottomTabBar {...props} />} >
           <Tab.Screen
             name="product-list"
             component={ProductsList}
-            options={{ headerShown: false }}
+            options={{ headerShown: false, tabBarIcon: (props) => <HomeSvg {...props} /> }}
           />
           <Tab.Screen
             name="favourites"
             component={Favourites}
-            options={{ headerShown: false }}
+            options={{ headerShown: false, tabBarIcon: (props) => <FavouritesSvg {...props} /> }}
           />
-          <Tab.Screen name="search" options={{ headerShown: false }}>
+          <Tab.Screen name="search" options={{ headerShown: false, tabBarIcon: (props) => <SearchSvg {...props} /> }}>
             {() => null}
           </Tab.Screen>
           <Tab.Screen
             name="cart"
             component={Cart}
-            options={{ headerShown: false }}
+            options={{ headerShown: false, tabBarIcon: (props) => <CartSvg {...props} /> }}
           />
           <Tab.Screen
             name="profile"
             component={Profile}
-            options={{ headerShown: false }}
+            options={{ headerShown: false, tabBarIcon: (props) => <ProfileSvg {...props} /> }}
           />
         </Tab.Navigator>
       ) : auth.loggedInState === 'logged-out' ? (

@@ -13,7 +13,7 @@ export function authReducer(state: AuthState, action: AuthActions): AuthState {
 }
 
 export const initialAuthState: AuthState = {
-  loggedInState: 'logged-out',
+  loggedInState: 'logged-in',
 };
 
 export const AuthContext = createContext(null);

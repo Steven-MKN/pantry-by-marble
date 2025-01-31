@@ -53,9 +53,8 @@ export default function App() {
             },
           }),
           mode: 'exact',
-        }}
-      >
-        <SafeAreaView style={{ flex: 1 }}>
+        }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'transparent' }}>
           <Main />
         </SafeAreaView>
       </PaperProvider>

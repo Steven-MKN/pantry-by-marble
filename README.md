@@ -33,3 +33,6 @@ To learn more about developing your project with Expo, look at the following res
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
 ## Things to note
+
+- The label fonts are not correct, they should not be in italics, but customising react-native-paper is a bit challenging and takes a bit more time. I have left it as is for now.
+-

@@ -67,6 +67,9 @@ export default function SignUp({ onLogin }: { onLogin: () => void }) {
 
   return (
     <ScreenWrapper>
+      <Pressable style={{ alignSelf: 'flex-end' }} onPress={onLogin}>
+        <Label>{'Expore app'}</Label>
+      </Pressable>
       <Label varient="screen-heading-italic">
         {'Welcome to\nPantry by Marble'}
       </Label>

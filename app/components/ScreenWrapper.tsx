@@ -7,7 +7,7 @@ export default function ScreenWrapper({
   readonly children?: React.ReactNode;
 }) {
   return (
-    <View style={{ flex: 1, paddingHorizontal: 16 }}>
+    <View style={{ flex: 1, paddingHorizontal: 16, backgroundColor: '#fff' }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ flex: 1 }}>
           {children}
