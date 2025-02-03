@@ -30,11 +30,14 @@ export default function ProductsList({
       filterList = [...productState.selectedCategories, categoryId];
     }
 
+    if (categoryId == 'all') {
+      filterList = ['all'];
+    } else {
+      filterList = filterList.filter(id => id !== 'all');
+    }
+
     if (filterList.length === 0) {
       filterList.push('all');
-    }
-    if (filterList.includes('all')) {
-      filterList = ['all'];
     }
 
     dispatchProductAction({ type: 'FILTER_CATEGORY', payload: filterList });
