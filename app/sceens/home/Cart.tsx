@@ -259,8 +259,9 @@ export default function Cart({
             }}
           >
             <Label style={{ fontSize: 12 }}>{'Discount'}</Label>
-            <Label style={{ fontSize: 14, fontWeight: 800 }}>{`${productState.cart.discount * 100
-              }%`}</Label>
+            <Label style={{ fontSize: 14, fontWeight: 800 }}>{`${
+              productState.cart.discount * 100
+            }%`}</Label>
           </View>
         )}
         <Space height={16} />
@@ -278,7 +279,7 @@ export default function Cart({
             style={{ fontSize: 18, fontWeight: 700 }}
           >{`R ${productState.cart.total.toFixed(2)}`}</Label>
         </View>
-        <AppButton title="Checkout" onPress={() => { }} enabled={true} />
+        <AppButton title="Checkout" onPress={() => {}} enabled={true} />
       </View>
     </View>
   );

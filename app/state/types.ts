@@ -39,6 +39,8 @@ export type Cart = {
 export type ProductState = {
   categories: Category[];
   products: Product[];
+  filteredProducts: Product[];
+  selectedCategories: CategoryId[];
   cart: Cart;
   promoCode: string;
 };
@@ -48,4 +50,5 @@ export type ProductActions =
   | { type: 'REMOVE_ITEM'; payload: string }
   | { type: 'APPLY_PROMO_CODE'; payload: string }
   | { type: 'REMOVE_PROMO_CODE' }
-  | { type: 'CLEAR_ITEM'; payload: string };
+  | { type: 'CLEAR_ITEM'; payload: string }
+  | { type: 'FILTER_CATEGORY'; payload: CategoryId[] };

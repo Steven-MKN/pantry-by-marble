@@ -3,7 +3,7 @@ import Label from '@/app/components/Label';
 import ProductsListView from '@/app/components/ProductsListView';
 import { ScreenWrapperNoScroll } from '@/app/components/ScreenWrapper';
 import Space from '@/app/components/Space';
-import { ProductState } from '@/app/state/types';
+import { CategoryId, ProductState } from '@/app/state/types';
 import { FilterSvg } from '@/assets/icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
@@ -19,6 +19,27 @@ export default function ProductsList({
   productState,
   dispatchProductAction,
 }: ProductsListProps) {
+  const applyFilter = (categoryId: CategoryId) => {
+    let filterList: CategoryId[] = [];
+
+    if (productState.selectedCategories.includes(categoryId)) {
+      filterList = productState.selectedCategories.filter(
+        id => id !== categoryId
+      );
+    } else {
+      filterList = [...productState.selectedCategories, categoryId];
+    }
+
+    if (filterList.length === 0) {
+      filterList.push('all');
+    }
+    if (filterList.includes('all')) {
+      filterList = ['all'];
+    }
+
+    dispatchProductAction({ type: 'FILTER_CATEGORY', payload: filterList });
+  };
+
   return (
     <ScreenWrapperNoScroll>
       <Space height={16} />
@@ -68,8 +89,22 @@ export default function ProductsList({
         style={{ height: 40 }}
       >
         {productState.categories.map((category, index) => (
-          <TouchableOpacity style={{ marginEnd: 24 }} key={category.id}>
-            <Label style={{ fontWeight: category.selected ? 800 : 400 }}>
+          <TouchableOpacity
+            style={{ marginEnd: 24 }}
+            key={category.id}
+            onPress={() => {
+              applyFilter(category.id);
+            }}
+          >
+            <Label
+              style={{
+                fontWeight: productState.selectedCategories.includes(
+                  category.id
+                )
+                  ? 800
+                  : 400,
+              }}
+            >
               {category.name}
             </Label>
           </TouchableOpacity>
@@ -83,7 +118,7 @@ export default function ProductsList({
       <Label style={{ fontWeight: 700, fontSize: 30 }}>{'Our products'}</Label>
 
       <ProductsListView
-        products={productState.products}
+        products={productState.filteredProducts}
         addItemToCard={(id: string) => {
           dispatchProductAction({ type: 'ADD_ITEM', payload: id });
         }}
