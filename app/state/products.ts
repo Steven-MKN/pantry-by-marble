@@ -141,7 +141,7 @@ export const initialProductState: ProductState = {
   promoCode: '',
   filteredProducts: listOfApiProducts,
   selectedCategories: ['all'],
-  products: listOfApiProducts
+  products: listOfApiProducts,
 };
 
 export const ProductContext = createContext(null);

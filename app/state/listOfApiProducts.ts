@@ -1,4 +1,4 @@
-import { Product } from "./types";
+import { Product } from './types';
 
 export const listOfApiProducts: Product[] = [
   // Beef (20 items)
@@ -328,4 +328,4 @@ export const listOfApiProducts: Product[] = [
     categoryId: 'poultry',
     inCart: false,
   },
-]
+];
