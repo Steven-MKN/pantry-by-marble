@@ -38,3 +38,11 @@ To learn more about developing your project with Expo, look at the following res
 - Given how not standard the styling is (i.e everything needing to be customised or designed from scratch), it take significantly more time to implement the design,
 - I noticed some pattern between the different screens, the ScreenWrapper component could handle the common styling and functionalities to reduce code duplication, refactor/maintanance overhead and improve readability,
 - The procduct images would ideally come from an API and not stored in code,
+
+## How long the assessment took you in man hours?
+
+About 4 days, or an equivalence of 32 hours.
+
+## What parts of the test were most challenging to you?
+
+- The styling was definately a bit of work, react-native-paper is not friendly to such levels of styling, but once that was done, the rest was pretty straight forward.
