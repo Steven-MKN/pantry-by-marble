@@ -3,6 +3,11 @@ import { TouchableOpacity, View } from 'react-native';
 import { DotSvg } from '../../assets/icons';
 
 export default function BottomTabBar(props: BottomTabBarProps) {
+
+  if (props.state.routeNames[props.state.index] == 'cart') {
+    return null;
+  }
+
   return (
     <View
       style={{
@@ -49,10 +54,10 @@ export default function BottomTabBar(props: BottomTabBarProps) {
             >
               {Boolean(props?.descriptors[route.key]?.options?.tabBarIcon)
                 ? props.descriptors[route.key].options.tabBarIcon!({
-                    focused: isFocused,
-                    size: 24,
-                    color: isFocused ? '#fff' : '#a8a8a8',
-                  })
+                  focused: isFocused,
+                  size: 24,
+                  color: isFocused ? '#fff' : '#a8a8a8',
+                })
                 : null}
               {isFocused && <DotSvg color={isFocused ? '#fff' : '#a8a8a8'} />}
             </View>

@@ -45,7 +45,7 @@ export default function RootLayout() {
   return (
     <View style={{ flex: 1 }}>
       {auth.loggedInState === 'logged-in' ? (
-        <Tab.Navigator tabBar={props => <BottomTabBar {...props} />}>
+        <Tab.Navigator tabBar={props => <BottomTabBar {...props} />} >
           <Tab.Screen
             name="product-list"
             options={{
@@ -92,9 +92,6 @@ export default function RootLayout() {
           >
             {() => (
               <Cart
-                onBackToLogin={() => {
-                  dispatch({ type: 'LOGOUT' });
-                }}
                 productState={productState}
                 dispatchProductAction={dispatchProductAction}
               />

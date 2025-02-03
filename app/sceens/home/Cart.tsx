@@ -7,21 +7,21 @@ import { ProductState } from '@/app/state/types';
 import { AddSvg, LineSvg } from '@/assets/icons';
 import { LessSvg } from '@/assets/icons/Less';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { FlatList, Image, TouchableOpacity, View } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 export type CartScreenProps = {
   readonly productState: ProductState;
-  readonly onBackToLogin: () => void;
   readonly dispatchProductAction: React.Dispatch<any>;
 };
 
 export default function Cart({
-  onBackToLogin,
   productState,
   dispatchProductAction,
 }: CartScreenProps) {
+  const navigation = useNavigation();
   // this might need to be memoized (useMemo) pending some further testing, most likely not needed because it may not benefit from it
   const cartItems = productState.cart.items
     .map(cartItem => {
@@ -55,7 +55,9 @@ export default function Cart({
               flexDirection: 'row',
               alignItems: 'center',
             }}
-            onPress={onBackToLogin}
+            onPress={() => {
+              navigation.goBack();
+            }}
           >
             <MaterialCommunityIcons
               name="chevron-left"
@@ -257,9 +259,8 @@ export default function Cart({
             }}
           >
             <Label style={{ fontSize: 12 }}>{'Discount'}</Label>
-            <Label style={{ fontSize: 14, fontWeight: 800 }}>{`${
-              productState.cart.discount * 100
-            }%`}</Label>
+            <Label style={{ fontSize: 14, fontWeight: 800 }}>{`${productState.cart.discount * 100
+              }%`}</Label>
           </View>
         )}
         <Space height={16} />
@@ -277,7 +278,7 @@ export default function Cart({
             style={{ fontSize: 18, fontWeight: 700 }}
           >{`R ${productState.cart.total.toFixed(2)}`}</Label>
         </View>
-        <AppButton title="Checkout" onPress={() => {}} enabled={true} />
+        <AppButton title="Checkout" onPress={() => { }} enabled={true} />
       </View>
     </View>
   );
