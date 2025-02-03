@@ -12,7 +12,7 @@ import {
   isValidPassword,
 } from '@/app/utils/validation';
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, TouchableOpacity, View } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 export default function SignUp({ onLogin }: { onLogin: () => void }) {
@@ -67,9 +67,9 @@ export default function SignUp({ onLogin }: { onLogin: () => void }) {
 
   return (
     <ScreenWrapper>
-      <Pressable style={{ alignSelf: 'flex-end' }} onPress={onLogin}>
+      <TouchableOpacity style={{ alignSelf: 'flex-end' }} onPress={onLogin}>
         <Label>{'Expore app'}</Label>
-      </Pressable>
+      </TouchableOpacity>
       <Label varient="screen-heading-italic">
         {'Welcome to\nPantry by Marble'}
       </Label>

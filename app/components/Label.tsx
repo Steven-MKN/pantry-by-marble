@@ -15,7 +15,7 @@ export default function Label(props: LabelProps) {
       style={{
         ...(props.varient === 'screen-heading'
           ? {
-              fontFamily: 'AGaramondPro-Regular',
+              fontFamily: 'AGaramondPro-Bold',
               fontSize: 40,
               lineHeight: 50,
               fontWeight: 700,

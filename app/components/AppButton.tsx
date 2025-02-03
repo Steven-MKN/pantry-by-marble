@@ -10,6 +10,7 @@ export type AppButtonProps = {
   readonly enabled: boolean;
   readonly loading?: boolean;
   readonly icon?: React.ReactElement;
+  readonly style?: any;
 };
 
 export default function AppButton({

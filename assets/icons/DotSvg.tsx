@@ -9,6 +9,13 @@ export const DotSvg = (props: SvgProps) => (
     fill="none"
     {...props}
   >
-    <Rect width={4} height={4} x={10} y={4} fill={props.color ?? "#FCF9F5"} rx={2} />
+    <Rect
+      width={4}
+      height={4}
+      x={10}
+      y={4}
+      fill={props.color ?? '#FCF9F5'}
+      rx={2}
+    />
   </Svg>
 );

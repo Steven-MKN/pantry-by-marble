@@ -17,3 +17,15 @@ export default function ScreenWrapper({
     </View>
   );
 }
+
+export function ScreenWrapperNoScroll({
+  children,
+}: {
+  readonly children?: React.ReactNode;
+}) {
+  return (
+    <View style={{ flex: 1, paddingHorizontal: 16, backgroundColor: '#fff' }}>
+      {children}
+    </View>
+  );
+}

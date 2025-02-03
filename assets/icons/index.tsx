@@ -1,7 +1,11 @@
+export * from './Add';
 export * from './Cart';
+export * from './CartSmall';
 export * from './DotSvg';
 export * from './Favourites';
+export * from './Filter';
 export * from './Home';
+export * from './Less';
+export * from './Line';
 export * from './Profile';
 export * from './Search';
-

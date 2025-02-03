@@ -17,6 +17,8 @@ export default function App() {
     'AGaramondPro-BoldItalic': require('./assets/fonts/AGaramondPro-BoldItalic.otf'),
     'AGaramondPro-Italic': require('./assets/fonts/AGaramondPro-Italic.otf'),
     'AGaramondPro-SemiboldItalics': require('./assets/fonts/AGaramondPro-SemiboldItalic.otf'),
+    'Geomanist-Book': require('./assets/fonts/Geomanist-Book.otf'),
+    'Geomanist-Light': require('./assets/fonts/Geomanist-Light.otf'),
   });
 
   useEffect(() => {
@@ -53,7 +55,8 @@ export default function App() {
             },
           }),
           mode: 'exact',
-        }}>
+        }}
+      >
         <SafeAreaView style={{ flex: 1, backgroundColor: 'transparent' }}>
           <Main />
         </SafeAreaView>

@@ -1,11 +1,17 @@
-import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { TouchableOpacity, View } from "react-native";
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { TouchableOpacity, View } from 'react-native';
 import { DotSvg } from '../../assets/icons';
-
 
 export default function BottomTabBar(props: BottomTabBarProps) {
   return (
-    <View style={{ width: '100%', height: 68, backgroundColor: '#54634B', flexDirection: 'row' }}>
+    <View
+      style={{
+        width: '100%',
+        height: 68,
+        backgroundColor: '#54634B',
+        flexDirection: 'row',
+      }}
+    >
       {props.state.routes.map((route, index) => {
         const isFocused = props.state.index === index;
         const onPress = () => {
@@ -34,25 +40,25 @@ export default function BottomTabBar(props: BottomTabBarProps) {
             style={{ flex: 1 }}
             key={route.key}
           >
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              {Boolean(
-                props?.descriptors[route.key]?.options?.tabBarIcon,
-              )
+            <View
+              style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {Boolean(props?.descriptors[route.key]?.options?.tabBarIcon)
                 ? props.descriptors[route.key].options.tabBarIcon!({
-                  focused: isFocused,
-                  size: 24,
-                  color: isFocused ? '#fff' : '#a8a8a8',
-                })
+                    focused: isFocused,
+                    size: 24,
+                    color: isFocused ? '#fff' : '#a8a8a8',
+                  })
                 : null}
-              {
-                isFocused && (
-                  <DotSvg color={isFocused ? '#fff' : '#a8a8a8'} />
-                )
-              }
+              {isFocused && <DotSvg color={isFocused ? '#fff' : '#a8a8a8'} />}
             </View>
           </TouchableOpacity>
         );
       })}
     </View>
-  )
+  );
 }

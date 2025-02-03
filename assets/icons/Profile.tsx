@@ -9,13 +9,19 @@ export const ProfileSvg = (props: SvgProps) => (
     fill="none"
     {...props}
   >
-    <Circle cx={11} cy={5} r={4} stroke={props.color ?? "#FCF9F5"} strokeWidth={2} />
+    <Circle
+      cx={11}
+      cy={5}
+      r={4}
+      stroke={props.color ?? '#FCF9F5'}
+      strokeWidth={2}
+    />
     <Rect
       width={20}
       height={7}
       x={1}
       y={13}
-      stroke={props.color ?? "#FCF9F5"}
+      stroke={props.color ?? '#FCF9F5'}
       strokeWidth={2}
       rx={3.5}
     />
